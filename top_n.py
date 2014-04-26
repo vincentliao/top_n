@@ -12,9 +12,7 @@ top = [None] * (TOP_N+1)
 def escalate(top):
 	for i in reversed(range(1, TOP_N+1)):
 		if top[i] > top[i-1]: 
-			tmp = top[i-1]
-			top[i-1] = top[i] 
-			top[i] = tmp
+			top[i], top[i-1] = top[i-1], top[i]
 
 # read number from file(command argument)
 fd = open(sys.argv[1], "r")
